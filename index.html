@@ -284,10 +284,78 @@
       letter-spacing: 0.02em;
     }
 
-    /* Footer */
-    .footer {
+    /* Sponsors marquee */
+    .sponsors {
       margin-top: auto;
       padding-top: 4rem;
+      width: 100%;
+      max-width: 600px;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+      mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+    }
+
+    .sponsors-label {
+      text-align: center;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--smoke);
+      opacity: 0.35;
+      margin-bottom: 1rem;
+    }
+
+    .sponsors-track {
+      display: flex;
+      gap: 2.5rem;
+      animation: scroll 25s linear infinite;
+      width: max-content;
+    }
+
+    .sponsors-track:hover {
+      animation-play-state: paused;
+    }
+
+    .sponsor {
+      flex-shrink: 0;
+      font-family: 'Alfa Slab One', serif;
+      font-size: 0.85rem;
+      color: var(--smoke);
+      opacity: 0.4;
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+      transition: opacity 0.3s;
+    }
+
+    .sponsor:hover {
+      opacity: 0.7;
+    }
+
+    .sponsor.primary {
+      color: var(--amber);
+      opacity: 0.6;
+    }
+
+    .sponsor.primary:hover {
+      opacity: 0.9;
+    }
+
+    .sponsor-dot {
+      flex-shrink: 0;
+      color: var(--ember);
+      opacity: 0.25;
+      font-size: 0.6rem;
+      align-self: center;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Footer */
+    .footer {
+      padding-top: 2rem;
       text-align: center;
       font-size: 0.8rem;
       color: var(--smoke);
@@ -383,6 +451,46 @@
         <button type="submit">I'm in</button>
       </form>
       <p id="confirm">See you around the fire.</p>
+    </div>
+
+    <!-- Sponsors -->
+    <div class="sponsors">
+      <p class="sponsors-label">Brought to you by</p>
+      <div class="sponsors-track">
+        <span class="sponsor primary">Island Place</span>
+        <span class="sponsor-dot">&bull;</span>
+        <span class="sponsor">Cedar Key Brewing</span>
+        <span class="sponsor-dot">&bull;</span>
+        <span class="sponsor">Gulf Seafood Co.</span>
+        <span class="sponsor-dot">&bull;</span>
+        <span class="sponsor primary">Island Place</span>
+        <span class="sponsor-dot">&bull;</span>
+        <span class="sponsor">Salty Marsh Outfitters</span>
+        <span class="sponsor-dot">&bull;</span>
+        <span class="sponsor">Clamerica</span>
+        <span class="sponsor-dot">&bull;</span>
+        <span class="sponsor">The Rusty Anchor</span>
+        <span class="sponsor-dot">&bull;</span>
+        <span class="sponsor">Tidewater Provisions</span>
+        <span class="sponsor-dot">&bull;</span>
+        <!-- duplicate set for seamless loop -->
+        <span class="sponsor primary">Island Place</span>
+        <span class="sponsor-dot">&bull;</span>
+        <span class="sponsor">Cedar Key Brewing</span>
+        <span class="sponsor-dot">&bull;</span>
+        <span class="sponsor">Gulf Seafood Co.</span>
+        <span class="sponsor-dot">&bull;</span>
+        <span class="sponsor primary">Island Place</span>
+        <span class="sponsor-dot">&bull;</span>
+        <span class="sponsor">Salty Marsh Outfitters</span>
+        <span class="sponsor-dot">&bull;</span>
+        <span class="sponsor">Clamerica</span>
+        <span class="sponsor-dot">&bull;</span>
+        <span class="sponsor">The Rusty Anchor</span>
+        <span class="sponsor-dot">&bull;</span>
+        <span class="sponsor">Tidewater Provisions</span>
+        <span class="sponsor-dot">&bull;</span>
+      </div>
     </div>
 
     <div class="footer">MMXXVI</div>
