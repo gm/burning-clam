@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burning Clam</title>
+  <meta name="description" content="Burning Clam — Bonfire. Food. Music. A community gathering in Cedar Key, FL.">
+  <meta property="og:title" content="Burning Clam">
+  <meta property="og:description" content="Bonfire. Food. Music. Cedar Key, FL.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ember: #e8632b;
+      --flame: #d4451a;
+      --sand: #f5e6d3;
+      --driftwood: #8b7355;
+      --charcoal: #2c2416;
+      --smoke: #a89279;
+      --glow: #f4a460;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--charcoal);
+      color: var(--sand);
+      font-family: 'Source Serif 4', Georgia, serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+    }
+
+    /* Firefly particles */
+    .fireflies {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .firefly {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--glow);
+      border-radius: 50%;
+      box-shadow: 0 0 8px 2px rgba(244, 164, 96, 0.6);
+      animation: drift 8s ease-in-out infinite, flicker 2s ease-in-out infinite;
+    }
+
+    .firefly:nth-child(1) { top: 15%; left: 20%; animation-delay: 0s, 0.3s; animation-duration: 9s, 1.8s; }
+    .firefly:nth-child(2) { top: 45%; left: 75%; animation-delay: 2s, 0.7s; animation-duration: 7s, 2.2s; }
+    .firefly:nth-child(3) { top: 70%; left: 35%; animation-delay: 4s, 1.1s; animation-duration: 11s, 1.6s; }
+    .firefly:nth-child(4) { top: 25%; left: 60%; animation-delay: 1s, 0.5s; animation-duration: 8s, 2.5s; }
+    .firefly:nth-child(5) { top: 80%; left: 80%; animation-delay: 3s, 0.9s; animation-duration: 10s, 1.9s; }
+    .firefly:nth-child(6) { top: 55%; left: 10%; animation-delay: 5s, 1.3s; animation-duration: 12s, 2.1s; }
+
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(30px, -20px); }
+      50% { transform: translate(-15px, 15px); }
+      75% { transform: translate(20px, 25px); }
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+
+    /* Main content */
+    .container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem;
+      max-width: 600px;
+    }
+
+    .clam-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+      animation: ember-glow 3s ease-in-out infinite;
+    }
+
+    @keyframes ember-glow {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.3); }
+    }
+
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 10vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--sand);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 .burning {
+      display: block;
+      background: linear-gradient(135deg, var(--glow), var(--ember), var(--flame));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h1 .clam {
+      display: block;
+    }
+
+    .tagline {
+      font-size: 1.15rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--smoke);
+      margin: 1.5rem 0;
+      font-weight: 600;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--ember), transparent);
+      margin: 2rem auto;
+    }
+
+    .details {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--smoke);
+    }
+
+    .details .location {
+      color: var(--sand);
+      font-weight: 600;
+    }
+
+    .details .location-sub {
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--driftwood);
+    }
+
+    .divider-sm {
+      width: 30px;
+      height: 1px;
+      background: var(--driftwood);
+      margin: 2rem auto;
+      opacity: 0.5;
+    }
+
+    .signup {
+      margin-top: 0.5rem;
+    }
+
+    .signup p {
+      font-size: 0.95rem;
+      color: var(--driftwood);
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .signup form {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .signup input[type="email"] {
+      background: rgba(245, 230, 211, 0.08);
+      border: 1px solid var(--driftwood);
+      color: var(--sand);
+      padding: 0.75rem 1rem;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1rem;
+      border-radius: 4px;
+      width: 240px;
+      transition: border-color 0.3s;
+    }
+
+    .signup input[type="email"]::placeholder {
+      color: var(--driftwood);
+      opacity: 0.7;
+    }
+
+    .signup input[type="email"]:focus {
+      outline: none;
+      border-color: var(--ember);
+      box-shadow: 0 0 0 2px rgba(232, 99, 43, 0.15);
+    }
+
+    .signup button {
+      background: var(--ember);
+      color: var(--sand);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .signup button:hover {
+      background: var(--flame);
+    }
+
+    footer {
+      position: fixed;
+      bottom: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--driftwood);
+      opacity: 0.5;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="fireflies">
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+  </div>
+
+  <div class="container">
+    <div class="clam-icon">🔥🐚</div>
+    <h1>
+      <span class="burning">Burning</span>
+      <span class="clam">Clam</span>
+    </h1>
+    <p class="tagline">Bonfire · Food · Music</p>
+    <div class="divider"></div>
+    <div class="details">
+      <p class="location">Cedar Key, FL</p>
+      <p class="location-sub">A tiny island. A big fire. Good people.</p>
+    </div>
+    <div class="divider-sm"></div>
+    <div class="signup">
+      <p>Date coming soon. Get on the list.</p>
+      <form action="#" onsubmit="handleSignup(event)">
+        <input type="email" placeholder="your@email.com" required>
+        <button type="submit">I'm in</button>
+      </form>
+      <p id="confirm" style="display:none; color: var(--glow); margin-top: 1rem; font-style: normal;">See you around the fire.</p>
+    </div>
+  </div>
+
+  <footer>Cedar Key, FL</footer>
+
+  <script>
+    function handleSignup(e) {
+      e.preventDefault();
+      const form = e.target;
+      form.style.display = 'none';
+      document.getElementById('confirm').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
