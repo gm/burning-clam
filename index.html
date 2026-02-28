@@ -170,10 +170,13 @@
     }
 
     .tagline p {
-      font-family: 'Alfa Slab One', serif;
-      font-size: clamp(1rem, 3vw, 1.4rem);
-      letter-spacing: 0.2em;
+      font-size: clamp(1.05rem, 3vw, 1.3rem);
       color: var(--smoke);
+    }
+
+    .tagline .vibe {
+      font-style: italic;
+      letter-spacing: 0.02em;
     }
 
     .tagline .dots {
@@ -367,20 +370,14 @@
 
     <!-- Tagline -->
     <div class="tagline">
-      <p>Bonfire <span class="dots">&middot;</span> Food <span class="dots">&middot;</span> Music</p>
+      <p class="vibe">Tiny island. Big fires. Great people.</p>
     </div>
 
     <div class="divider"></div>
 
-    <!-- Info -->
-    <div class="info">
-      <p class="location">Cedar Key, FL</p>
-      <p class="vibe">Tiny island. Big fires. Great people.</p>
-    </div>
-
     <!-- Signup -->
     <div class="signup">
-      <p class="cta">Date coming soon. Get on the list.</p>
+      <p class="cta">Date and location coming soon. Get on the list.</p>
       <form action="#" onsubmit="handleSignup(event)">
         <input type="email" placeholder="your@email.com" required aria-label="Email address">
         <button type="submit">I'm in</button>
