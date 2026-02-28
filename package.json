@@ -1,0 +1,7 @@
+{
+  "name": "burning-clam",
+  "private": true,
+  "dependencies": {
+    "resend": "^6.9.2"
+  }
+}

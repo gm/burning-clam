@@ -375,7 +375,7 @@
     <!-- Info -->
     <div class="info">
       <p class="location">Cedar Key, FL</p>
-      <p class="vibe">A tiny island. A big fire. Good people.</p>
+      <p class="vibe">Tiny island. Big fires. Great people.</p>
     </div>
 
     <!-- Signup -->
@@ -411,12 +411,32 @@
     }
 
     // Signup handler
-    function handleSignup(e) {
+    async function handleSignup(e) {
       e.preventDefault();
       const form = e.target;
-      form.style.display = 'none';
-      document.querySelector('.signup .cta').style.display = 'none';
-      document.getElementById('confirm').style.display = 'block';
+      const email = form.querySelector('input[type="email"]').value;
+      const btn = form.querySelector('button');
+
+      btn.textContent = '...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+
+        if (!res.ok) throw new Error();
+
+        form.style.display = 'none';
+        document.querySelector('.signup .cta').style.display = 'none';
+        document.getElementById('confirm').style.display = 'block';
+      } catch {
+        btn.textContent = "I'm in";
+        btn.disabled = false;
+        alert('Something went wrong. Try again?');
+      }
     }
   </script>
 </body>
